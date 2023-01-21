@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: url("https://4kwallpapers.com/images/wallpapers/heart-tree-flower-garden-red-flowers-landscape-scenery-4300x2550-3422.jpg");
+            width: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%;
+        }
+       
+        .title{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 7%;
+            font-size: 30px;
+            color: rgb(6, 6, 61);
+        }
+        .timer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1%;
+     
+        }
+        .timer__block{
+            width: 50px;
+            height: 50px;
+            background-color: pink;
+            padding: 20px;
+            border: "none";
+            margin: 20px;
+            text-align: center;
+            background: transparent;
+            color: rgb(82, 21, 90);    
+        }span{
+            font-size: 30px;
+          
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="promotion__timer">
+        <div class="title">Gulruxsorning tug'ulgan kunigacha bo'lgan vaqt</div>
+    <div class="timer">
+        <div class="timer__block">
+          <span id="days"></span>
+          day
+        </div>
+        <div class="timer__block">
+          <span id="hours"></span>
+          hours
+        </div>
+        <div class="timer__block">
+          <span id="minutes">99</span>
+          minutes
+        </div>
+        <div class="timer__block">
+          <span id="seconds">09</span>
+          seconds
+        </div>
+    </div>
+   
+    </div>
+    <script type="text/javascript">
+        
+const deadline = '2023-06-01'
+function remainingTime(endTime){
+    const timer =   Date.parse(endTime) - Date.parse(new Date()),
+    days = Math.floor(timer / (1000 * 60 * 60 *24)),
+    hours = Math.floor((timer /(1000 * 60 *60))%24),
+    minutes = Math.floor((timer / 1000/60) %60),
+    seconds = Math.floor((timer /1000)%60)
+    return{timer,days,hours,minutes,seconds}
+}
+function universalFunction(selectors,endtime){
+    const timer = document.querySelector(selectors),
+    days = timer.querySelector("#days"),
+    hours= timer.querySelector("#hours"),
+    minutes = timer.querySelector("#minutes"),
+    seconds = timer.querySelector("#seconds"),
+    timeInterval = setInterval(updateClock,100)
+    
+
+    updateClock()
+    function updateClock(){
+        const t = remainingTime(endtime)
+            days.innerHTML = t.days,
+            hours.innerHTML = t.hours,
+            minutes.innerHTML = t.minutes,
+            seconds.innerHTML = t.seconds
+        if(t.timer<=0){
+            clearInterval(timeInterval)
+        }
+    }
+}
+
+universalFunction(".timer", deadline)
+window.addEventListener("DOMContentLoaded", (e)=>{
+e.preventDefault()
+})
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .forms{
+        width: 100%;
+        height: 100vh;
+        background: blue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    input{
+        width: 200px;
+        height: 40px;
+        margin: 10px;
+    }
+    button{
+        width: 200px;
+        height: 40px;
+        margin: 10px;
+    }
+    .text{
+        z-index: 1;
+    }
+</style>
+<body>
+    <div class="forms">
+        <h1 class="text">Text</h1>
+        <form action="">
+
+            <input type="text" class="email" id="flaming" placeholder="enter your email">
+            <input type="text" class="name"id="flaming" placeholder="enter your name">
+            <button class="btn" id="flaming">Sign up</button>
+        </form>
+        <button class="remove">remove</button>
+    </div>
+    <script src="./app.js"></script>
+</body>
+</html>
